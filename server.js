@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 const json = require("./Develop/db/db.json"); //keep an eye out for errors concerning path to json file does not exist!!
 const PORT = process.env.PORT || 3001;
+const id = require("./idnumber");
 //telling express below what middleware to use for parsing data/encoding the url
 app.use(express.json()); //tells express we are going to be using json
 app.use(express.urlencoded({ extended: true }));
@@ -28,8 +29,41 @@ app.get("/api/notes", (req, res) =>
     res.sendFile(path.join(__dirname, "./Develop/db/db.json"))
 );
 //^^telling express to transfer the json file at the given path
-app.get("*", (req, res) => res.json(data));
+app.get("*", (req, res) => res.json(`${req.method} request received`));
+
 //^^get all saved notes and send the response data in json
+
+app.post("/api/notes", (req, res) => {
+    res.json(req.body);
+}); //create a user request for /api/notes and send a response in json
+
+app.post("*", (req, res) => res.json(`${req.method} request received`));
+//^create a user request for "*" and a response in json
+
+app.post('/', function(req, res, next) {
+    console.log(req.body);
+    const notesid = () => {
+        return Math.floor(1 + Math.random() * 0x10000)
+            .toString(16)
+            .substring(1);
+    };
+    const newNote = { title, text, id } = req.body;
+    // if (title && text && id)
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(PORT, () => console.log(`App listening on port${PORT}`));
 //telling express to listen in the port for both the requests and/or responses coming in and going out
