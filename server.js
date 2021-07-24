@@ -62,6 +62,15 @@ app.post("/", function(req, res, next) {
             } else {
                 const parsedNotes = JSON.parse(data);
                 parsedNotes.push(newNote);
+
+                fs.writeFile(
+                    "./db/notes.json",
+                    JSON.stringify(parsedNotes, null, 4),
+                    (writeErr) =>
+                    writeErr ?
+                    console.log(err) :
+                    console.log("successfully updated notes!!")
+                );
             }
         });
     }
