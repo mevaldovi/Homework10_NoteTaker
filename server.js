@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 const path = require("path");
 const app = express();
 const json = require("./Develop/db/db.json"); //keep an eye out for errors concerning path to json file does not exist!!
@@ -40,30 +41,31 @@ app.post("/api/notes", (req, res) => {
 app.post("*", (req, res) => res.json(`${req.method} request received`));
 //^create a user request for "*" and a response in json
 
-app.post('/', function(req, res, next) {
+app.post("/", function(req, res, next) {
     console.log(req.body);
     const notesid = () => {
         return Math.floor(1 + Math.random() * 0x10000)
             .toString(16)
             .substring(1);
     };
-    const newNote = { title, text, id } = req.body;
-    // if (title && text && id)
+    const newNote = ({ title, text, id } = req.body);
+    if (title && text && id) {
+        const newNote = {
+            title,
+            text,
+            id: notesid(),
+        };
 
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
+        fs.readFile("./db/notes.json", "utf8", (err, data) => {
+            if (err) {
+                console.log(error);
+            } else {
+                const parsedNotes = JSON.parse(data);
+                parsedNotes.push(newNote);
+            }
+        });
+    }
+});
 
 app.listen(PORT, () => console.log(`App listening on port${PORT}`));
 //telling express to listen in the port for both the requests and/or responses coming in and going out

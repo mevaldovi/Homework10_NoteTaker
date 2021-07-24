@@ -4,7 +4,7 @@ const notesid = () => {
         .substring(1);
 };
 
-notesid();
+
 const ids = res.json(data);
 
 
