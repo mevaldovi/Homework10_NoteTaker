@@ -64,9 +64,42 @@ app.post("/api/notes", (req, res) => {
     }
     console.log(req.body);
 });
-//^^check if there is anything in the response body;
 
-// app.post("*", (req, res) => res.json(`${req.method} request received`));
+app.post("/api/notes/:notes_id", (req, res) => {
+    if (req.body && req.params.notes_id && req.body.requestid) {
+        console.log(`${req.method} request received to give note an id`);
+        //^^tell express to get the parameter for the note's id number and console.log the request to the server
+        let requestedId;
+        //^^prepare requestedId variable
+        if (typeof req.body.requestid === "boolean") {
+            requestedId == req.body.requestid;
+        } else {
+            requestedId == req.body.requestid == "true";
+        }
+        console.log(req.body);
+        //log the request body ^^
+        const reviewId = req.params.notes_id;
+
+        for (let i = 0; i < notes.length, i++) {
+            const currentId = notes_id[i];
+            if (currentId.notes_id === reviewId && requestedId) {
+                currentId.requestid += 1;
+            }
+        }
+    }
+});
+//^^check if there is anything in the response body;
+// app.post("*", (req, res) => {
+//         console.log(`{req.method} request received`);
+//         let response;
+//         if (req.body && req.body.text) {
+//             response = {
+//                 status: "success!",
+//                 data: req.body,
+//             }
+//         }
+//     }
+//     res.json(`${req.method} request received`));
 //^create a user request for "*" and a response in json
 
 // app.post("/", function(req, res, next) {
