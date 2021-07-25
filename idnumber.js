@@ -5,7 +5,7 @@ const notesid = () => {
 };
 
 
-const ids = res.json(data);
+
 
 
 module.exports = ids;

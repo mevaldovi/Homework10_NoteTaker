@@ -1,3 +1,4 @@
+const { raw } = require("body-parser");
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
@@ -31,50 +32,77 @@ app.get("/api/notes", (req, res) =>
 );
 //^^telling express to transfer the json file at the given path
 app.get("*", (req, res) => res.json(`${req.method} request received`));
-
 //^^get all saved notes and send the response data in json
-
-app.post("/api/notes", (req, res) => {
-    res.json(req.body);
-}); //create a user request for /api/notes and send a response in json
-
-app.post("*", (req, res) => res.json(`${req.method} request received`));
-//^create a user request for "*" and a response in json
-
-app.post("/", function(req, res, next) {
-    console.log(req.body);
-    const notesid = () => {
-        return Math.floor(1 + Math.random() * 0x10000)
-            .toString(16)
-            .substring(1);
-    };
-    const newNote = ({ title, text, id } = req.body);
-    if (title && text && id) {
-        const newNote = {
-            title,
-            text,
-            id: notesid(),
-        };
-
-        fs.readFile("./db/notes.json", "utf8", (err, data) => {
-            if (err) {
-                console.log(error);
-            } else {
-                const parsedNotes = JSON.parse(data);
-                parsedNotes.push(newNote);
-
-                fs.writeFile(
-                    "./db/notes.json",
-                    JSON.stringify(parsedNotes, null, 4),
-                    (writeErr) =>
-                    writeErr ?
-                    console.log(err) :
-                    console.log("successfully updated notes!!")
-                );
+app.get("/api/reviews/:notes_id", (req, res) => {
+    if (req.body && req.params.notes_id) {
+        console.log(`{req.method} request received to get a single note`);
+        const noteId = req.params.notes_id;
+        for (let i = 0; i < notes.length; i++) {
+            const currentNote = notes[i];
+            if (currentNote.notes_id === noteId) {
+                res.json(currentNote);
+                return;
             }
-        });
+        }
+        res.json("Note Id not found");
     }
 });
+//POST request to ADD a note
+app.post("/api/notes", (req, res) => {
+    console.log(`${req.method} request received to add a note`);
+    //log whichever req method was used to addthe note
+    let response;
+    //^^prepare a response object to send back to the client;
+    if (req.body && req.body.text) {
+        response = {
+            status: "success!",
+            data: req.body,
+        };
+        res.json(`note for ${response.data.text} has been added!`);
+    } else {
+        res.json("request body must at least contain some text");
+    }
+    console.log(req.body);
+});
+//^^check if there is anything in the response body;
+
+// app.post("*", (req, res) => res.json(`${req.method} request received`));
+//^create a user request for "*" and a response in json
+
+// app.post("/", function(req, res, next) {
+//     console.log(req.body);
+//     const notesid = () => {
+//         return Math.floor(1 + Math.random() * 0x10000)
+//             .toString(16)
+//             .substring(1);
+//     };
+//     const newNote = ({ title, text, id } = req.body);
+//     if (title && text && id) {
+//         const newNote = {
+//             title,
+//             text,
+//             id: notesid(),
+//         };
+
+//         fs.readFile("./db/notes.json", "utf8", (err, data) => {
+//             if (err) {
+//                 console.log(error);
+//             } else {
+//                 const parsedNotes = JSON.parse(data);
+//                 parsedNotes.push(newNote);
+
+//                 fs.writeFile(
+//                     "./db/notes.json",
+//                     JSON.stringify(parsedNotes, null, 4),
+//                     (writeErr) =>
+//                     writeErr ?
+//                     console.log(err) :
+//                     console.log("successfully updated notes!!")
+//                 );
+//             }
+//         });
+//     }
+// });
 
 app.listen(PORT, () => console.log(`App listening on port${PORT}`));
 //telling express to listen in the port for both the requests and/or responses coming in and going out
