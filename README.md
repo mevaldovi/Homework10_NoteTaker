@@ -10,4 +10,4 @@ Here a viewer gets to see the API call in action to bring results and interactio
 Marie Valdovinos
 
 # Deployed Application : Heroku Link
-you can explore the deployed application [here](link goes here).
+you can explore the deployed application [here](https://notetaker-halfdone.herokuapp.com/notes).
