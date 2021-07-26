@@ -10,7 +10,7 @@ const id = require("./idnumber");
 app.use(express.json()); //tells express we are going to be using json
 app.use(express.urlencoded({ extended: true }));
 //^^tells express to allow parsing URL-encoded objects and arrays into json
-app.use(express.static("public")); //tells express we're going to be using the public folder
+app.use(express.static("Develop/public")); //tells express we're going to be using the public folder
 //GET request
 app.get(
     "/",
@@ -31,7 +31,9 @@ app.get("/api/notes", (req, res) =>
     res.sendFile(path.join(__dirname, "./Develop/db/db.json"))
 );
 //^^telling express to transfer the json file at the given path
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, "Develop/public/notes.html")));
+app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname, "Develop/public/notes.html"))
+);
 //^^get all saved notes and send the response data in json
 app.get("/api/reviews/:notes_id", (req, res) => {
     if (req.body && req.params.notes_id) {
@@ -63,6 +65,16 @@ app.post("/api/notes", (req, res) => {
         res.json("request body must at least contain some text");
     }
     console.log(req.body);
+    fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
+        const newNote = req.body;
+        const notes = JSON.parse(data)
+        notes.push(newNote);
+        console.log(notes)
+        fs.writeFile("./Develop/db/db.json", JSON.stringify(notes), err => {
+            if (err) throw err;
+            res.end();
+        })
+    });
 });
 
 app.post("/api/notes/:notes_id", (req, res) => {
@@ -74,7 +86,7 @@ app.post("/api/notes/:notes_id", (req, res) => {
         if (typeof req.body.requestid === "boolean") {
             requestedId == req.body.requestid;
         } else {
-            requestedId == req.body.requestid == "true";
+            (requestedId == req.body.requestid) == "true";
         }
         console.log(req.body);
         //log the request body ^^
