@@ -17,7 +17,7 @@ app.get(
     (
         req,
         res //get route for homepage!
-    ) => res.sendFile(path.join(__dirname, "public/index.html"))
+    ) => res.sendFile(path.join(__dirname, "Develop/public/index.html"))
 );
 //get a path, there will be info about the request and the response,
 //we're gioing to be sending the response data through the path and join the path to the index html
@@ -31,7 +31,7 @@ app.get("/api/notes", (req, res) =>
     res.sendFile(path.join(__dirname, "./Develop/db/db.json"))
 );
 //^^telling express to transfer the json file at the given path
-app.get("*", (req, res) => res.json(`${req.method} request received`));
+app.get("*", (req, res) => res.sendFile(path.join(__dirname, "Develop/public/notes.html")));
 //^^get all saved notes and send the response data in json
 app.get("/api/reviews/:notes_id", (req, res) => {
     if (req.body && req.params.notes_id) {
@@ -80,7 +80,7 @@ app.post("/api/notes/:notes_id", (req, res) => {
         //log the request body ^^
         const reviewId = req.params.notes_id;
 
-        for (let i = 0; i < notes.length, i++) {
+        for (let i = 0; i < notes.length; i++) {
             const currentId = notes_id[i];
             if (currentId.notes_id === reviewId && requestedId) {
                 currentId.requestid += 1;
