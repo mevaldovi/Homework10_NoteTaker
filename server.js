@@ -67,13 +67,13 @@ app.post("/api/notes", (req, res) => {
     console.log(req.body);
     fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
         const newNote = req.body;
-        const notes = JSON.parse(data)
+        const notes = JSON.parse(data);
         notes.push(newNote);
-        console.log(notes)
-        fs.writeFile("./Develop/db/db.json", JSON.stringify(notes), err => {
+        console.log(notes);
+        fs.writeFile("./Develop/db/db.json", JSON.stringify(notes), (err) => {
             if (err) throw err;
             res.end();
-        })
+        });
     });
 });
 
@@ -100,53 +100,32 @@ app.post("/api/notes/:notes_id", (req, res) => {
         }
     }
 });
-//^^check if there is anything in the response body;
-// app.post("*", (req, res) => {
-//         console.log(`{req.method} request received`);
-//         let response;
-//         if (req.body && req.body.text) {
-//             response = {
-//                 status: "success!",
-//                 data: req.body,
+
+// app.delete("api//notes/:notes_id", (req, res) => {
+//     let ChosenNoteToDelete = req.params.id;
+//     fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
+//         if (err) {
+//             console.log(error);
+//             return;
+//         }
+//         for (let i = 0; i < length; i++) {
+//             const json = JSON.parse(data);
+//             if (json[i].id === ChosenNoteToDelete) {
+//                 json.splice(i, 1);
+//                 return;
+//             } else {
+//                 fs.writeFile("./Develop/db/db.json", JSON.stringify(json), (err) => {
+//                     if (err) {
+//                         console.log(err);
+//                         // res.sendStatus(500);
+//                         return;
+//                     } else {
+//                         res.send("Successfully deleted!");
+//                     }
+//                 });
 //             }
 //         }
-//     }
-//     res.json(`${req.method} request received`));
-//^create a user request for "*" and a response in json
-
-// app.post("/", function(req, res, next) {
-//     console.log(req.body);
-//     const notesid = () => {
-//         return Math.floor(1 + Math.random() * 0x10000)
-//             .toString(16)
-//             .substring(1);
-//     };
-//     const newNote = ({ title, text, id } = req.body);
-//     if (title && text && id) {
-//         const newNote = {
-//             title,
-//             text,
-//             id: notesid(),
-//         };
-
-//         fs.readFile("./db/notes.json", "utf8", (err, data) => {
-//             if (err) {
-//                 console.log(error);
-//             } else {
-//                 const parsedNotes = JSON.parse(data);
-//                 parsedNotes.push(newNote);
-
-//                 fs.writeFile(
-//                     "./db/notes.json",
-//                     JSON.stringify(parsedNotes, null, 4),
-//                     (writeErr) =>
-//                     writeErr ?
-//                     console.log(err) :
-//                     console.log("successfully updated notes!!")
-//                 );
-//             }
-//         });
-//     }
+//     });
 // });
 
 app.listen(PORT, () => console.log(`App listening on port${PORT}`));
