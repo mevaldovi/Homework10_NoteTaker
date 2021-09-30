@@ -27,7 +27,7 @@ HTML, CSS, JavaScript, NodeJS, Web APIs, Express, & Git.
 [Agnowledgments](https://github.com/mevaldovi/Homework10_NoteTaker#Agknowledgments)
 
 # Installation
-[Heroku](https://notetaker-halfdone.herokuapp.com/notes). 
+[Deployed application](https://notetaker-halfdone.herokuapp.com/notes). 
 If the link does not work, you can just clone down this repo, right click on the html file located in the Public folder, and select "open in default browser". 
 # Usage
 Simply open the link in the "Installation" tab above which should take you straight to the web application. Click "Add Note" and have fun with it!
