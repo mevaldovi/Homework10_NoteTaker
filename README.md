@@ -1,5 +1,5 @@
 
-# Homework10_NoteTaker
+# Note-Taker
 <img width="614" alt="Note-taker" src="https://user-images.githubusercontent.com/83307023/135525543-b40ddee3-4a3b-40fb-bdea-63767e510472.PNG">
 
 
@@ -12,23 +12,23 @@ A highly user-friendly & interactive note taker for the web.
 HTML, CSS, JavaScript, NodeJS, Web APIs, Express, & Git.
 
 # Table of Contents
-[Description](https://github.com/mevaldovi/Homework10_NoteTaker#Description)
+[Description](https://github.com/mevaldovi/Note-Taker#Description)
 
-[Technology](https://github.com/mevaldovi/Homework10_NoteTaker#Technology)
+[Technology](https://github.com/mevaldovi/Note-Taker#Technology)
 
-[Installation](https://github.com/mevaldovi/Homework10_NoteTaker#Installation)
-
-
-[Usage](https://github.com/mevaldovi/Homework10_NoteTakerMYSQL#Usage)
+[Installation](https://github.com/mevaldovi/Note-Taker#Installation)
 
 
-[License](https://github.com/mevaldovi/Homework10_NoteTakerMYSQL#License)
+[Usage](https://github.com/mevaldovi/Note-Taker#Usage)
 
 
-[Contact Info](https://github.com/mevaldovi/Homework10_NoteTakerMYSQL#Contact)
+[License](https://github.com/mevaldovi/Note-Taker#License)
 
 
-[Agnowledgments](https://github.com/mevaldovi/Homework10_NoteTaker#Agknowledgments)
+[Contact Info](https://github.com/mevaldovi/Note-Taker#Contact)
+
+
+[Agnowledgments](https://github.com/mevaldovi/Note-Taker#Agknowledgments)
 
 # Installation
 
