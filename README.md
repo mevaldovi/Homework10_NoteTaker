@@ -4,7 +4,7 @@
 
 
 ## Description
-[Deployed application](). 
+[Deployed App](). 
 
 A highly user-friendly & interactive note taker for the web.
 
