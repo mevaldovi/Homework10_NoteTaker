@@ -4,7 +4,7 @@
 
 
 ## Description
-[Deployed App](). 
+[Deployed App](https://note-taker-revised.herokuapp.com/). 
 
 A highly user-friendly & interactive note taker for the web.
 
