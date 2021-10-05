@@ -1,10 +1,11 @@
 
 # Note-Taker
+[Deployed App](https://note-taker-revised.herokuapp.com/) 
+
 <img width="614" alt="Note-taker" src="https://user-images.githubusercontent.com/83307023/135525543-b40ddee3-4a3b-40fb-bdea-63767e510472.PNG">
 
 
 ## Description
-[Deployed App](https://note-taker-revised.herokuapp.com/). 
 
 A highly user-friendly & interactive note taker for the web.
 
