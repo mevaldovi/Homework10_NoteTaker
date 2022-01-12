@@ -42,7 +42,8 @@ HTML, CSS, JavaScript, NodeJS, Web APIs, & Express.
 - Open index.html in default browser
 
 # Usage
-Simply open the link in the "Installation" tab above which should take you straight to the web application. Click "Add Note" and have fun with it!
+Click the deployed app URL under header or clone down this repo, and have fun taking notes!
+
 # License
 None at this time.
 # Contact
