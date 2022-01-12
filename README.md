@@ -33,13 +33,13 @@ HTML, CSS, JavaScript, NodeJS, Web APIs, & Express.
 
 # Installation
 
-- No dependencies
-
 
 - Clone down this repo
 
+- npm install 
 
-- open index.html in default browser
+
+- Open index.html in default browser
 
 # Usage
 Simply open the link in the "Installation" tab above which should take you straight to the web application. Click "Add Note" and have fun with it!
