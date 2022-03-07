@@ -33,13 +33,18 @@ HTML, CSS, JavaScript, NodeJS, Web APIs, & Express.
 
 # Installation
 
-
-- Clone down this repo
-
-- npm install 
+Bold text indicates commands in the terminal; italicized text indicates steps to take
 
 
-- Open index.html in default browser
+- _Clone down this repo_
+
+- **npm install**
+
+- **cd server.js**
+
+- **node server.js
+
+- _Navigate to https://localhost:3000 in the browser_
 
 # Usage
 Click the deployed app URL under header or clone down this repo, and have fun taking notes!
