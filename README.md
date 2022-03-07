@@ -44,7 +44,7 @@ Bold text indicates commands in the terminal; italicized text indicates steps to
 
 - **node server.js
 
-- _Navigate to https://localhost:3000 in the browser_
+- _Navigate to https://localhost:3001 in the browser_
 
 # Usage
 Click the deployed app URL under header or clone down this repo, and have fun taking notes!
