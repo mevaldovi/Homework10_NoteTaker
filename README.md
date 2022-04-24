@@ -33,8 +33,6 @@ HTML, CSS, JavaScript, NodeJS, Web APIs, & Express.
 
 # Installation
 
-Bold text indicates commands in the terminal; italicized text indicates steps to take
-
 
 - _Clone down this repo_
 
