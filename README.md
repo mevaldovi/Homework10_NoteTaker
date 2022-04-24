@@ -38,11 +38,11 @@ Bold text indicates commands in the terminal; italicized text indicates steps to
 
 - _Clone down this repo_
 
-- **npm install**
+- `npm install`
 
-- **cd server.js**
+- `cd server.js`
 
-- **node server.js
+- `node server.js`
 
 - _Navigate to https://localhost:3001 in the browser_
 
@@ -54,7 +54,10 @@ None at this time.
 # Contact
 Github: [https://github.com/mevaldovi](https://github.com/mevaldovi)
 
-Shoot me an email: [mevaldovi@gmail.com](mailto:mevaldovi@gmail.com)
+LinkedIn : [https://www.linkedin.com/in/marie-valdovinos-a616b21b1](https://www.linkedin.com/in/marie-valdovinos-a616b21b1)
+
+
+Shoot me an email:[mevaldovi@gmail.com](mailto:mevaldovi@gmail.com)
 # Agknowledgments
 Special thanks to Trinh Ngyuen for helping smooth out some of the rougher parts.
 "Last, but not least, I would like to thank me. I want to thank me for believing in me, I want to thank me for doing all this hard work. I wanna thank me for having no days off. I wanna thank me for never quitting. I wanna thank me for always been a giver and trying to give more than I receive. I want to thank me for trying to do more right than wrong. I want to thank me for just being me at all times.” --Snoop Dog
